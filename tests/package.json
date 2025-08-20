@@ -1,0 +1,42 @@
+{
+  "name": "ecommerce-microservices-tests",
+  "version": "1.0.0",
+  "description": "Pruebas de integración para sistema de microservicios e-commerce",
+  "main": "integration.test.js",
+  "scripts": {
+    "test": "jest --verbose --detectOpenHandles",
+    "test:watch": "jest --watch --verbose",
+    "test:coverage": "jest --coverage --verbose",
+    "test:integration": "jest integration.test.js --verbose --detectOpenHandles",
+    "test:ci": "jest --ci --coverage --watchAll=false --verbose"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000,
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
+  },
+  "keywords": ["microservices", "testing", "integration", "ecommerce"],
+  "author": "Arquitecto de Software",
+  "license": "MIT"
+}
